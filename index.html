@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Galaxy</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: radial-gradient(#0d0d1a, #000);
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* Animasi bintang */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: transparent;
+        box-shadow:
+            50vw 20vh #fff,
+            20vw 80vh #fff,
+            70vw 40vh #fff,
+            90vw 90vh #fff,
+            10vw 30vh #fff,
+            40vw 60vh #fff;
+        animation: twinkle 5s infinite alternate;
+        z-index: 0;
+    }
+
+    @keyframes twinkle {
+        from {opacity: 0.6;}
+        to {opacity: 1;}
+    }
+
+    header {
+        text-align: center;
+        padding: 80px 20px;
+        z-index: 1;
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 3em;
+        color: #00ffff;
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    header p {
+        margin-top: 10px;
+        font-size: 1.2em;
+        color: #ccc;
+    }
+
+    nav {
+        background: rgba(0,0,50,0.7);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: #00ffff;
+        text-decoration: none;
+        padding: 15px 0;
+        display: block;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ff00ff;
+        text-shadow: 0 0 10px #ff00ff;
+    }
+
+    section {
+        padding: 60px 20px;
+        max-width: 1000px;
+        margin: auto;
+        z-index: 1;
+        position: relative;
+    }
+
+    section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.5em;
+        color: #00ffff;
+        text-shadow: 0 0 10px #00ffff;
+    }
+
+    .portfolio-items, .tips-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .card {
+        background: rgba(0,0,50,0.7);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,255,255,0.5);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 30px rgba(255,0,255,0.8);
+    }
+
+    .card img {
+        width: 100%;
+        display: block;
+    }
+
+    .card h3 {
+        margin: 15px;
+        color: #ffcc00;
+    }
+
+    .card p {
+        margin: 0 15px 15px;
+        color: #ccc;
+    }
+
+    footer {
+        background: rgba(0,0,50,0.9);
+        text-align: center;
+        padding: 20px;
+        color: #00ffff;
+        z-index: 1;
+        position: relative;
+    }
+
+    footer a {
+        color: #ff00ff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* Musik control */
+    #music audio {
+        width: 100%;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Fogtzy</h1>
+    <p>Selamat datang di portofolio saya</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">Tentang Saya</a></li>
+        <li><a href="#portfolio">Karya</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#music">Musik</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>Tentang Saya</h2>
+    <p>seseorang yang sedang mencari arah tujuan hidup</p>
+</section>
+
+<section id="portfolio">
+    <h2>Karya</h2>
+    <div class="portfolio-items">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1581090700227-3488a5a84e87?auto=format&fit=crop&w=600&q=80" alt="Karya 1">
+            <h3>Karya 1</h3>
+            <p>COOMING SOON</p>
+        </div>
+        <div class="card">
+            <img src="https://github.com/VOID-NOT-DEV/PROFOLIO/raw/c56f66ef451d330df248a2c29393a6e92d80df4b/COOMING%20SOON%20.jpg" alt="Karya 2">
+            <h3>Karya 2</h3>
+            <p>COOMING SOON</p>
+        </div>
+    </div>
+</section>
+
+<section id="tips">
+    <h2>Tips</h2>
+    <div class="tips-items">
+        <div class="card">
+            <h3>Tips 1</h3>
+            <p>pelajari senjata emang bener" lu kuasai dan kembangkan </p>
+        </div>
+        <div class="card">
+            <h3>Tips 2</h3>
+            <p>cari temen yang bener" have fun bukan yang Mandang dari segi kemampuan lu</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Kontak</h2>
+    <div style="text-align: center; font-size: 1.2em; line-height: 2.0;">
+        <p>📧 Email: <a href="forsa.milanisti@gmail.com" style="color:#00ffff;">forsa.milanisti@gmail.com</a></p>
+        <p>📱 WhatsApp: <a href="https://wa.me/0881038344765" target="_blank" style="color:#00ffff;">0881038344765</a></p>
+        <p>🎵 TikTok: <a href="https://www.tiktok.com/@Fogtzyy" target="_blank" style="color:#00ffff;">@Fogtzyy</a></p>
+        <p>💖 Support Me: <a href="https://web-payment-tau.vercel.app/" target="_blank" style="color:#ff00ff;">Klik di sini</a></p>
+    </div>
+</section>
+
+<section id="music">
+    <h2>Musik Favorit Saya</h2>
+    <p>Nikmati lagu ini sambil melihat portofolio:</p>
+    <audio controls autoplay loop>
+        <source src="https://youtu.be/QgiZVuQUoHo?si=WA7Z1aofS0hie9Yn" type="audio/mpeg">
+        Browser kamu tidak mendukung pemutar audio.
+    </audio>
+</section>
+
+<footer>
+    &copy; 2025 Fogtzy. Semua hak dilindungi. | <a href="#about">Back to top</a>
+</footer>
+
+</body>
+</html>
