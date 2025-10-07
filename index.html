@@ -1,160 +1,31 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profolio saya</title>
-  <style>
-    /* === GALAXY BACKGROUND === */
-    body {
-      margin: 0;
-      overflow: hidden;
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
-      color: white;
-    }
-
-    /* === BINTANG === */
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: transparent;
-      overflow: hidden;
-    }
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background: white;
-      border-radius: 50%;
-      animation: blink 2s infinite ease-in-out;
-    }
-    @keyframes blink {
-      0%,100% { opacity: 0.2; }
-      50% { opacity: 1; }
-    }
-
-    /* === NAVBAR === */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 50, 0.6);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      padding: 12px;
-      z-index: 10;
-      border-bottom: 2px solid #00bfff;
-    }
-
-    nav a {
-      color: #00bfff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #00bfff;
-    }
-
-    /* === HALAMAN === */
-    .page {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      display: none;
-      width: 90%;
-      max-width: 600px;
-      animation: fadeIn 1s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    h1 {
-      font-size: 2em;
-      text-shadow: 0 0 10px #00bfff;
-    }
-
-    p {
-      color: #ddd;
-      line-height: 1.6;
-    }
-
-    /* === LOGO === */
-    .logo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 2px solid #00bfff;
-      box-shadow: 0 0 15px #00bfff;
-      margin-top: 15px;
-    }
-
-    /* === STORY === */
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .gallery img, .gallery iframe {
-      width: 250px;
-      height: 150px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00bfff;
-    }
-
-    /* === AUDIO PLAYER === */
-    .music {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      z-index: 20;
-    }
-
-    audio {
-/* ==== STYLE GALAXY & DASAR ==== */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio FOGTZY</title>
+<style>
+/* ==== GALAXY BACKGROUND ==== */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(ellipse at bottom, #0d1b2a, #000);
-  overflow: hidden;
   height: 100vh;
-  color: #fff;
+  overflow: hidden;
+  background: radial-gradient(circle at bottom, #020014 0%, #000010 70%, #000008 100%);
+  color: #b8dfff;
 }
 
-/* Efek bintang bergerak */
-.stars, .twinkling {
+/* ==== BINTANG BERGERAK ==== */
+.stars {
   position: fixed;
-  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  background: transparent url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat;
   z-index: 0;
-}
-
-.stars {
-  background: url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat;
   animation: moveStars 200s linear infinite;
+  opacity: 0.8;
 }
-
 @keyframes moveStars {
   from {background-position: 0 0;}
   to {background-position: -10000px 5000px;}
@@ -165,195 +36,204 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 25, 47, 0.9);
+  background: rgba(5, 10, 25, 0.85);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 40px;
-  padding: 15px 0;
+  padding: 12px 25px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
   z-index: 10;
+  border-bottom: 1px solid rgba(0,255,255,0.3);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(0,255,255,0.2);
 }
-
-.navbar a {
-  color: #00ffff;
+.navbar .logo-text {
+  color: #37d6ff;
+  font-weight: 700;
+  font-size: 18px;
+  text-shadow: 0 0 15px #00ffff;
+}
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+.nav-links a {
+  color: #37d6ff;
   text-decoration: none;
   font-weight: 600;
-  text-shadow: 0 0 10px #00ffff;
   transition: 0.3s;
 }
-
-.navbar a:hover {
+.nav-links a:hover {
   color: #fff;
-  text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 26px;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
 }
 
-/* ==== HALAMAN ==== */
+/* ==== NAVBAR RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 10, 30, 0.97);
+    border-top: 1px solid rgba(0,255,255,0.3);
+    box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    text-align: center;
+    padding: 10px 0;
+  }
+  .nav-links.active {
+    display: flex;
+    animation: fadeInNav 0.3s ease;
+  }
+  @keyframes fadeInNav {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ==== SECTION ==== */
 section {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
-  width: 80%;
-  max-width: 800px;
+  width: 85%;
+  max-width: 850px;
   transform: translate(-50%, -50%);
   text-align: center;
   display: none;
   z-index: 5;
-  background: rgba(0,0,0,0.5);
+  background: rgba(10, 15, 35, 0.75);
   border: 1px solid rgba(0,255,255,0.2);
-  box-shadow: 0 0 30px rgba(0,255,255,0.1);
-  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.15), inset 0 0 25px rgba(0, 150, 255, 0.15);
+  border-radius: 18px;
   padding: 40px 20px;
+  color: #a5cfff;
   animation: fadeIn 0.8s ease forwards;
 }
-
-/* Efek teks bergerak */
-section.active h1, 
-section.active p {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: textSlide 1s forwards;
+section.active {
+  display: block;
+  animation: fadePage 0.5s ease;
+}
+@keyframes fadePage {
+  from {opacity: 0; transform: translate(-50%, -40%);}
+  to {opacity: 1; transform: translate(-50%, -50%);}
+}
+section h1 {
+  color: #00eaff;
+  text-shadow: 0 0 15px #00ffff;
+}
+section p {
+  color: #bcd9ff;
+  line-height: 1.6;
 }
 
-@keyframes textSlide {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-/* ==== LOGO LINGKARAN ==== */
+/* ==== LOGO ==== */
 .logo {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   border: 3px solid #00ffff;
-  box-shadow: 0 0 25px #00ffff;
+  box-shadow: 0 0 25px #00ffff, 0 0 40px #007fff inset;
   object-fit: cover;
   margin-top: 20px;
 }
 
-/* ==== MUSIK DI POJOK BAWAH ==== */
-.music-control {
+/* ==== MUSIK ==== */
+audio {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
   border-radius: 50%;
-  padding: 15px;
-  cursor: pointer;
+  background: rgba(0,255,255,0.1);
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  backdrop-filter: blur(10px);
+  padding: 10px;
   z-index: 10;
-  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+audio:hover {
+  transform: scale(1.1);
   transition: 0.3s;
 }
-
-.music-control:hover {
-  background: rgba(0,255,255,0.3);
-  transform: scale(1.1);
-}
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 768px) {
-  .navbar {
-    gap: 15px;
-    font-size: 14px;
-    padding: 10px 0;
-  }
-
-  section {
-    width: 90%;
-    padding: 20px 10px;
-  }
-
-  .logo {
-    width: 80px;
-    height: 80px;
-  }
-
-  .music-control {
-    bottom: 10px;
-    right: 10px;
-    padding: 10px;
-  }
-}
-  </style>
+</style>
 </head>
 <body>
-  <div class="stars"></div>
+<div class="stars"></div>
 
-  <nav>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo-text">Fogtzy</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="nav-links" id="navLinks">
     <a href="#" onclick="showPage('beranda')">Beranda</a>
     <a href="#" onclick="showPage('tentang')">Tentang Saya</a>
     <a href="#" onclick="showPage('pengalaman')">Pengalaman</a>
     <a href="#" onclick="showPage('story')">Story</a>
     <a href="#" onclick="showPage('kontak')">Kontak</a>
-  </nav>
-
-  <!-- === HALAMAN === -->
-  <div id="beranda" class="page active">
-    <h1>Selamat Datang di website profolio Saya</h1>
-    <p>“Setiap bintang memiliki cahayanya sendiri, seperti setiap manusia punya kisahnya”</p>
   </div>
+</div>
 
-  <div id="tentang" class="page">
-    <h1>Tentang Saya</h1>
-    <p>Halo, saya FOGTZYY, seorang gamer dan programmer python dan javascript saya bertempat di kota Surabaya Jawa timur Indonesia.</p>
-    <img src="logo.jpg" class="logo" alt="Logo Saya" />
-  </div>
+<!-- BERANDA -->
+<section id="beranda" class="active">
+  <h1>Selamat datang di website profolio Fogtzy</h1>
+  <p>"Setiap bintang memiliki cahayanya sendiri, seperti setiap manusia punya kisahnya"</p>
+</section>
 
-  <div id="pengalaman" class="page">
-    <h1>Pengalaman</h1>
-    <p>- saya seorang gamer dan programmer yang bisa membuat script dan panda bermain game saya juga pernah mengikuti turnamen offline dan ft dan saya juga seorang pengembang ai <br>- pembuatan website,ai,script bot wa/tele/discord dll,dan seorang conten creator</p>
-  </div>
+<!-- TENTANG -->
+<section id="tentang">
+  <h1>Tentang Saya</h1>
+  <p>Halo, saya FOGTZYY, seorang gamer dan programmer python dan javascript saya bertempat di kota Surabaya Jawa timur Indonesia</p>
+  <img src="https://i.ibb.co/6RSszx2/profile.jpg" alt="Logo Saya" class="logo">
+</section>
 
-  <div id="story" class="page">
-    <h1>Story & Kenangan</h1>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/250" alt="Kenangan">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-    </div>
-  </div>
+<!-- PENGALAMAN -->
+<section id="pengalaman">
+  <h1>Pengalaman</h1>
+  <p>saya seorang gamer dan programmer yang bisa membuat script dan panda bermain game saya juga pernah mengikuti turnamen offline dan ft dan saya juga seorang pengembang ai<br>•pembuatan website,ai,script bot wa/tele/discord dll,dan seorang conten creator</p>
+</section>
 
-  <div id="kontak" class="page">
-    <h1>Kontak Saya</h1>
-    <p>WhatsApp: <a href="https://wa.me/62881038344765" target="_blank">Klik di sini</a><br>
-       TikTok: <a href="https://tiktok.com/@fogtzyy" target="_blank" style="color:#00ffff;">TikTok</a><br>
-       Email: <a href="forsa.milanisti@gmail.com" style="color:#00ffff;">Email</a><br>
-       donasi: <a href="https://web-payment-tau.vercel.app/" target="_blank" style="color:#00ffff;">donasi</a>  
-    </p>
-  </div>
+<!-- STORY -->
+<section id="story">
+  <h1>Story</h1>
+  <p>SAKSIKAN SAJA DAN TERIMA SEGALA KRITIK</p>
+  <p><a href="https://youtube.com" target="_blank" style="color:#00ffff;">Lihat Story di YouTube</a></p>
+</section>
 
-  <!-- === AUDIO PLAYER === -->
-  <div class="music">
-    <audio autoplay loop controls>
-      <source src="lagu.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+<!-- KONTAK -->
+<section id="kontak">
+  <h1>Kontak Saya</h1>
+  <p><a href="https://wa.me/62881038344765" target="_blank" style="color:#00ffff;">WhatsApp</a> 
+      <a href="https://tiktok.com/@fogtzyy" target="_blank" style="color:#00ffff;">TikTok</a> |
+      <a href="forsa.milanisti@gmail.com" style="color:#00ffff;">Email</a>
+       <a href="https://web-payment-tau.vercel.app/" target="_blank" style="color:#00ffff;">donasi</a></p>
+</section>
 
-  <script>
-    // === GANTI HALAMAN ===
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
+<!-- MUSIK -->
+<audio controls autoplay loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+  Browser Anda tidak mendukung pemutar audio.
+</audio>
 
-    // === BINTANG RANDOM ===
-    const stars = document.querySelector('.stars');
-    for (let i = 0; i < 100; i++) {
-      const s = document.createElement('div');
-      s.className = 'star';
-      s.style.top = Math.random() * 100 + '%';
-      s.style.left = Math.random() * 100 + '%';
-      s.style.animationDelay = Math.random() * 2 + 's';
-      stars.appendChild(s);
-    }
-  </script>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+function showPage(id) {
+  const sections = document.querySelectorAll("section");
+  sections.forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.getElementById('navLinks').classList.remove('active');
+}
+</script>
 </body>
-</html>
+  </html>
