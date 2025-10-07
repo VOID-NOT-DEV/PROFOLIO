@@ -1,198 +1,220 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Saya</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profolio saya</title>
   <style>
-    /* Efek background galaxy */
+    /* === GALAXY BACKGROUND === */
     body {
       margin: 0;
-      padding: 0;
       overflow: hidden;
-      background: radial-gradient(circle at bottom, #020024 0%, #090979 35%, #000000 100%);
-      color: #fff;
       font-family: 'Poppins', sans-serif;
+      background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000 100%);
+      color: white;
     }
 
-    /* Bintang animasi */
+    /* === BINTANG === */
     .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
       width: 2px;
       height: 2px;
       background: white;
-      position: absolute;
+      border-radius: 50%;
       animation: blink 2s infinite ease-in-out;
     }
     @keyframes blink {
-      0%, 100% { opacity: 0.3; }
+      0%,100% { opacity: 0.2; }
       50% { opacity: 1; }
     }
 
-    /* Navbar */
+    /* === NAVBAR === */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0, 0, 50, 0.8);
+      background: rgba(0, 0, 50, 0.6);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
-      gap: 30px;
-      padding: 15px;
+      gap: 25px;
+      padding: 12px;
       z-index: 10;
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid #00ffff80;
+      border-bottom: 2px solid #00bfff;
     }
 
     nav a {
-      color: #00ffff;
+      color: #00bfff;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: 0.3s;
-      text-shadow: 0 0 8px #00ffff;
     }
 
     nav a:hover {
       color: #fff;
-      text-shadow: 0 0 20px #00ffff;
+      text-shadow: 0 0 10px #00bfff;
     }
 
-    /* Halaman */
-    section {
-      display: none;
-      height: 100vh;
-      padding: 80px 20px;
+    /* === HALAMAN === */
+    .page {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      animation: fadeIn 0.8s ease-in-out;
+      display: none;
+      width: 90%;
+      max-width: 600px;
+      animation: fadeIn 1s ease;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.98); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
     }
 
-    section.active {
+    .page.active {
       display: block;
     }
 
-    /* Tentang Saya */
-    #tentang {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
+    h1 {
+      font-size: 2em;
+      text-shadow: 0 0 10px #00bfff;
     }
 
-    #tentang .deskripsi {
-      max-width: 400px;
-      text-align: left;
+    p {
+      color: #ddd;
+      line-height: 1.6;
     }
 
-    #tentang img {
-      width: 200px;
-      height: 200px;
+    /* === LOGO === */
+    .logo {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 4px solid #00ffff;
-      box-shadow: 0 0 20px #00ffff;
+      border: 2px solid #00bfff;
+      box-shadow: 0 0 15px #00bfff;
+      margin-top: 15px;
     }
 
-    /* Story */
+    /* === STORY === */
     .gallery {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
+      gap: 10px;
     }
 
-    .gallery img, .gallery video, .gallery iframe {
-      border: 2px solid #00ffff;
+    .gallery img, .gallery iframe {
+      width: 250px;
+      height: 150px;
       border-radius: 10px;
-      box-shadow: 0 0 15px #00ffff;
-      width: 300px;
-      height: 170px;
-      object-fit: cover;
+      box-shadow: 0 0 10px #00bfff;
     }
 
-    h1, h2 {
-      text-shadow: 0 0 10px #00ffff;
+    /* === AUDIO PLAYER === */
+    .music {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 20;
+    }
+
+    audio {
+      width: 180px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00bfff;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      nav {
+        gap: 10px;
+        font-size: 14px;
+        padding: 10px;
+      }
+      h1 { font-size: 1.6em; }
+      .gallery img, .gallery iframe { width: 90%; }
+      audio { width: 150px; }
     }
   </style>
 </head>
 <body>
-  <!-- Musik autoplay (file di folder yang sama) -->
-  <audio autoplay loop>
-    <source src="lagu.mp3" type="audio/mpeg">
-  </audio>
+  <div class="stars"></div>
 
-  <!-- Bintang acak -->
-  <script>
-    for (let i = 0; i < 100; i++) {
-      let star = document.createElement('div');
-      star.classList.add('stars');
-      star.style.top = Math.random() * 100 + '%';
-      star.style.left = Math.random() * 100 + '%';
-      star.style.animationDelay = Math.random() * 2 + 's';
-      document.body.appendChild(star);
-    }
-  </script>
-
-  <!-- Navbar -->
   <nav>
     <a href="#" onclick="showPage('beranda')">Beranda</a>
     <a href="#" onclick="showPage('tentang')">Tentang Saya</a>
     <a href="#" onclick="showPage('pengalaman')">Pengalaman</a>
     <a href="#" onclick="showPage('story')">Story</a>
-    <a href="#" onclick="showPage('kontak')">Kontak Saya</a>
+    <a href="#" onclick="showPage('kontak')">Kontak</a>
   </nav>
 
-  <!-- Halaman Beranda -->
-  <section id="beranda" class="active">
+  <!-- === HALAMAN === -->
+  <div id="beranda" class="page active">
     <h1>Selamat Datang di website profolio Saya</h1>
-    <p>"Setiap bintang memiliki cahayanya sendiri, seperti setiap manusia punya kisahnya."</p>
-  </section>
+    <p>“Setiap bintang memiliki cahayanya sendiri, seperti setiap manusia punya kisahnya”</p>
+  </div>
 
-  <!-- Tentang Saya -->
-  <section id="tentang">
-    <div class="deskripsi">
-      <h2>Tentang Saya</h2>
-      <p>Halo, saya FOGTZYY, seorang gamer dan programmer python dan javascript saya bertempat di kota Surabaya Jawa timur Indonesia</p>
-    </div>
-    <img src="logo.jpg" alt="Logo Saya">
-  </section>
+  <div id="tentang" class="page">
+    <h1>Tentang Saya</h1>
+    <p>Halo, saya FOGTZYY, seorang gamer dan programmer python dan javascript saya bertempat di kota Surabaya Jawa timur Indonesia.</p>
+    <img src="logo.jpg" class="logo" alt="Logo Saya" />
+  </div>
 
-  <!-- Pengalaman -->
-  <section id="pengalaman">
-    <h2>Pengalaman</h2>
-    <p>•saya seorang gamer dan programmer yang bisa membuat script dan panda bermain game saya juga pernah mengikuti turnamen offline dan ft dan saya juga seorang pengembang ai <br>•pembuatan website,ai,script bot wa/tele/discord dll,dan seorang conten creator</p>
-  </section>
+  <div id="pengalaman" class="page">
+    <h1>Pengalaman</h1>
+    <p>- saya seorang gamer dan programmer yang bisa membuat script dan panda bermain game saya juga pernah mengikuti turnamen offline dan ft dan saya juga seorang pengembang ai <br>- pembuatan website,ai,script bot wa/tele/discord dll,dan seorang conten creator</p>
+  </div>
 
-  <!-- Story -->
-  <section id="story">
-    <h2>Story</h2>
+  <div id="story" class="page">
+    <h1>Story & Kenangan</h1>
     <div class="gallery">
-      <img src="https://via.placeholder.com/300x170?text=Kenangan+1" alt="Kenangan 1">
+      <img src="https://via.placeholder.com/250" alt="Kenangan">
       <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
     </div>
-  </section>
+  </div>
 
-  <!-- Kontak -->
-  <section id="kontak">
-    <h2>Kontak Saya</h2>
-    <p>Hubungi saya melalui:</p>
-    <p>
-      <a href="https://wa.me/62881038344765" target="_blank" style="color:#00ffff;">WhatsApp</a> 
-      <a href="https://tiktok.com/@fogtzyy" target="_blank" style="color:#00ffff;">TikTok</a> |
-      <a href="forsa.milanisti@gmail.com" style="color:#00ffff;">Email</a>
-       <a href="https://web-payment-tau.vercel.app/" target="_blank" style="color:#00ffff;">donasi</a> 
+  <div id="kontak" class="page">
+    <h1>Kontak Saya</h1>
+    <p>WhatsApp: <a href="https://wa.me/62881038344765" target="_blank">Klik di sini</a><br>
+       TikTok: <a href="https://tiktok.com/@fogtzyy" target="_blank" style="color:#00ffff;">TikTok</a><br>
+       Email: <a href="forsa.milanisti@gmail.com" style="color:#00ffff;">Email</a><br>
+       donasi: <a href="https://web-payment-tau.vercel.app/" target="_blank" style="color:#00ffff;">donasi</a>  
     </p>
-  </section>
+  </div>
 
-  <!-- Script Navigasi -->
+  <!-- === AUDIO PLAYER === -->
+  <div class="music">
+    <audio autoplay loop controls>
+      <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
   <script>
-    function showPage(pageId) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
+    // === GANTI HALAMAN ===
+    function showPage(id) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // === BINTANG RANDOM ===
+    const stars = document.querySelector('.stars');
+    for (let i = 0; i < 100; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 2 + 's';
+      stars.appendChild(s);
     }
   </script>
 </body>
