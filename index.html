@@ -10,10 +10,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  overflow: hidden;
   background: radial-gradient(circle at bottom, #020014 0%, #000010 70%, #000008 100%);
   color: #b8dfff;
+  overflow-x: hidden;
 }
 
 /* ==== BINTANG BERGERAK ==== */
@@ -35,21 +34,22 @@ body {
 .navbar {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: rgba(5, 10, 25, 0.85);
+  background: rgba(0, 10, 30, 0.95);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 25px;
+  padding: 14px 25px;
   box-shadow: 0 0 20px rgba(0,255,255,0.3);
-  z-index: 10;
   border-bottom: 1px solid rgba(0,255,255,0.3);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  z-index: 999;
 }
 .navbar .logo-text {
   color: #37d6ff;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 20px;
   text-shadow: 0 0 15px #00ffff;
 }
 .nav-links {
@@ -69,7 +69,7 @@ body {
 .menu-toggle {
   display: none;
   cursor: pointer;
-  font-size: 26px;
+  font-size: 28px;
   color: #00ffff;
   text-shadow: 0 0 15px #00ffff;
 }
@@ -79,23 +79,26 @@ body {
   .nav-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 10, 30, 0.97);
-    border-top: 1px solid rgba(0,255,255,0.3);
-    box-shadow: 0 0 20px rgba(0,255,255,0.2);
-    text-align: center;
-    padding: 10px 0;
+    align-items: center;
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: rgba(0, 0, 25, 0.97);
+    border: 1px solid rgba(0,255,255,0.3);
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.2);
+    padding: 15px 0;
+    z-index: 1000;
   }
   .nav-links.active {
     display: flex;
     animation: fadeInNav 0.3s ease;
   }
   @keyframes fadeInNav {
-    from {opacity: 0; transform: translateY(-10px);}
-    to {opacity: 1; transform: translateY(0);}
+    from {opacity: 0; transform: translate(-50%, -10px);}
+    to {opacity: 1; transform: translate(-50%, 0);}
   }
   .menu-toggle {
     display: block;
@@ -113,7 +116,7 @@ section {
   text-align: center;
   display: none;
   z-index: 5;
-  background: rgba(10, 15, 35, 0.75);
+  background: rgba(10, 15, 35, 0.8);
   border: 1px solid rgba(0,255,255,0.2);
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.15), inset 0 0 25px rgba(0, 150, 255, 0.15);
   border-radius: 18px;
@@ -138,17 +141,6 @@ section p {
   line-height: 1.6;
 }
 
-/* ==== LOGO ==== */
-.logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #00ffff;
-  box-shadow: 0 0 25px #00ffff, 0 0 40px #007fff inset;
-  object-fit: cover;
-  margin-top: 20px;
-}
-
 /* ==== MUSIK ==== */
 audio {
   position: fixed;
@@ -159,7 +151,7 @@ audio {
   box-shadow: 0 0 25px rgba(0,255,255,0.3);
   backdrop-filter: blur(10px);
   padding: 10px;
-  z-index: 10;
+  z-index: 1000;
 }
 audio:hover {
   transform: scale(1.1);
@@ -193,7 +185,7 @@ audio:hover {
 <section id="tentang">
   <h1>Tentang Saya</h1>
   <p>Halo, saya FOGTZYY, seorang gamer dan programmer python dan javascript saya bertempat di kota Surabaya Jawa timur Indonesia</p>
-  <img src="https://i.ibb.co/6RSszx2/profile.jpg" alt="Logo Saya" class="logo">
+  <img src="logo.jpg" alt="Logo Saya" class="logo">
 </section>
 
 <!-- PENGALAMAN -->
